@@ -9,6 +9,10 @@ app.use(expressLayouts);
 // creating static middleware called asset( for accessing css and js files )
 app.use(express.static('assets'));
 
+//extract styles and scripts for sub pages in layouts
+app.set('layout extractStyles',true)
+app.set('layout extractScripts',true)
+
 // use express router
 app.use('/', require('./routes'));
 
