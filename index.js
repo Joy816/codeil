@@ -1,13 +1,19 @@
 const express = require('express');
+const cookieParser = require ('cookie-parser');
+const expressLayouts = require ('express-ejs-layouts');
 const app = express();
 const port = 8000;
-const expressLayouts = require ('express-ejs-layouts');
+
 
 //importing mongoDB 
 const db = require ("./config/mongoose");
 
 //using Express layouts
 app.use(expressLayouts);
+// for POST request
+app.use(express.urlencoded());
+//using cookie-parser
+app.use(cookieParser());
 
 // creating static middleware called asset( for accessing css and js files )
 app.use(express.static('assets'));

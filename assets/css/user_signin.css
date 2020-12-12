@@ -1,0 +1,57 @@
+/* login section starts from here  */
+
+.section-head{
+    text-align:center;
+    color :#1e6b87;
+    font-size:3rem;
+    padding-top:10px;
+}
+
+input[type=email], input[type=password] {
+  width: 40%;
+  padding: 12px 20px;
+  margin: 5px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.loginbtn {
+  background-color: #1e6b87;
+  color: white;
+  padding: 12px 20px;
+  margin: 5px 0;
+  border: none;
+  cursor: pointer;
+  width: 40%;
+ 
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.cancelbtn {
+  width: auto;
+  padding: 12px 20px;
+  background-color: #f44336;
+}
+
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+
+.sec-body{
+    padding-bottom: 100px;
+    
+}
+
+/* login section ends here  */
