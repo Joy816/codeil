@@ -1,4 +1,29 @@
 
-       
-        <h1 > Welcome to the <%= title %> page !</h1>
+<h1 > Welcome to the <%= title %> page !</h1>
+
+<section id ="post-section">
+    <form action="/posts/create" method="POST">
+            <textarea name = "content" cols="16" rows="2" placeholder="Type here..."></textarea>
+            <input type="submit" value="Post">
+    </form>
+
+
+
+<% for ( post of posts ){ %>
+    <ul>
+        <p>
+            <li>
+                <%= post.content %>
+            </li>
+
+            <small>
+                <%= post.user.name %>
+            </small>
+            
+        </p>
+
+    </ul>
+<%}%>
+
+</section>
      
