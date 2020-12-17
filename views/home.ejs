@@ -2,10 +2,15 @@
 <h1 > Welcome to the <%= title %> page !</h1>
 
 <section id ="post-section">
-    <form action="/posts/create" method="POST">
+    <% if (locals.user){ %>
+        <h3>Post</h3>
+        <form action="/posts/create" method="POST">
             <textarea name = "content" cols="16" rows="2" placeholder="Type here..."></textarea>
             <input type="submit" value="Post">
     </form>
+
+   <% }%>
+
 
 
 
