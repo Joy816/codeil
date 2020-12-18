@@ -1,5 +1,7 @@
 # Getting Started with Codeil 
 
+Note : The Project is under development .
+
 The node-module folder has been ignored . please nake sure to have the node-module folder while running the project
 
 ## Available Scripts
