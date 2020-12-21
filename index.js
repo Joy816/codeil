@@ -3,7 +3,7 @@ const cookieParser = require ('cookie-parser');
 const expressLayouts = require ('express-ejs-layouts');
 const app = express();
 const port = 8000;
-//importing mongoDB 
+//mongoose acts as a object-data modelling (ODM) betw node.js and mongoDB
 const db = require ("./config/mongoose");
 // used for session cookie
 const session = require('express-session');
