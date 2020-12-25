@@ -1,40 +1,45 @@
 const Post = require ('../models/post');
 const Comment = require ('../models/comment');
 
-module.exports.create = function (req , res){
+module.exports.create = async function (req , res){
 
-    Post.create(
-        {
+    try{
+        await Post.create(
+            {
+                content : req.body.content ,
+                user : req.user._id
+            } ); 
+        return res.redirect('/');
 
-            content : req.body.content ,
-            user : req.user._id
+    }catch(err){
+        console.log("Error :", err);
+        return ;
+    }
 
-        } , 
-        function (err  , post)
-        {
-            if (err){console.log (`error in posting into db ${err}`);}
 
-            return res.redirect('/');
-
-    
-        }
-    
-    );
+ 
 }
 
-module.exports.destroy = function (req , res ){
-    Post.findById(req.params.id , function (err , post){
-        // .id means converting objectId into string 
-        if (post.user == req.user.id ){
-            post.remove();
+module.exports.destroy = async function (req , res ){
 
-            Comment.deleteMany({post : req.param.id} , function (err){
-                return res.redirect('back');
-            });
+    try{
+        let post = await Post.findById(req.params.id );
+        if (post.user == req.user.id ){
+         post.remove();
+     
+         await Comment.deleteMany({post : req.param.id} );
+         return res.redirect('back');
         }
         else{
-            return res.redirect('back');
+         return res.redirect('back');
         }
 
-    });
+    }
+    catch(err){
+        console.log("Error :", err);
+        return ;
+    }
+
+
+   
 }
