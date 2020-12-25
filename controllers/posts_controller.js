@@ -9,6 +9,7 @@ module.exports.create = async function (req , res){
                 content : req.body.content ,
                 user : req.user._id
             } ); 
+        req.flash('success' , 'Post Published Succesfully !');
         return res.redirect('/');
 
     }catch(err){
@@ -28,6 +29,7 @@ module.exports.destroy = async function (req , res ){
          post.remove();
      
          await Comment.deleteMany({post : req.param.id} );
+         req.flash('success' , 'Post deletion done  !');
          return res.redirect('back');
         }
         else{

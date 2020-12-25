@@ -34,6 +34,7 @@ module.exports.update =  async function(req, res){
     try{
         if(req.user.id == req.params.id){
             await User.findByIdAndUpdate(req.params.id, req.body);
+            req.flash ('success' , 'Succesfully updated details ! ');
             return res.redirect('back');
            
         }else{
@@ -107,6 +108,7 @@ module.exports.create = async function(req , res){
 // sigin data
 module.exports.createSession = function ( req , res ){
 
+    req.flash('success' , 'logged in succesfully ');
     return res.redirect('/');
 
 }
@@ -116,5 +118,9 @@ module.exports.createSession = function ( req , res ){
 module.exports.destroySession = function ( req , res ){
     req.logout();
 
+    req.flash('success' , 'logged out succesfully ');
     return res.redirect('/');
+   
+
+    
 }
